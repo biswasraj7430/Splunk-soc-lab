@@ -50,8 +50,11 @@ Detect brute-force login attempts in real-time SOC environment.
 
 # 🔍 Detection Query (SPL)
 
+```spl
 index=* "failed password"
 | rex "from (?<attacker_ip>\d+\.\d+\.\d+\.\d+)"
 | stats count by attacker_ip
+```
+
 
 
