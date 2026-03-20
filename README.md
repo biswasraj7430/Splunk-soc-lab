@@ -46,4 +46,11 @@ index=* "failed password"
 - Basic SOC Investigation
 
 ## 🎯 Use Case
-Detect brute-force login attempts in real-time SOC environment.
+Detect brute-force login attempts in real-time SOC environment.# 🔍 Detection Query (SPL)
+
+
+index=* "failed password"
+| rex "from (?<attacker_ip>\d+\.\d+\.\d+\.\d+)"
+| stats count by attacker_ip
+
+
